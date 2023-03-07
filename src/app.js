@@ -4,6 +4,7 @@ const cors = require("cors");
 const db = require("./utils/database");
 const initModels = require("./models/initModels");
 const userRoutes = require("./routes/user.routes");
+const todoRoutes = require("./routes/todo.routes");
 
 initModels();
 
@@ -20,11 +21,12 @@ db.authenticate()
   })
   .catch((error) => console.log(error));
 
-db.sync({ force: false })
+db.sync({ alter: true })
   .then(() => console.log("Sync DB"))
   .catch((error) => console.log(error));
 
-app.use(userRoutes)
+app.use(userRoutes);
+app.use(todoRoutes);
 
 app.get("/", (req, res) => {
   res.send("TODO API");

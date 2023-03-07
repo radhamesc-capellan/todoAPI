@@ -2,6 +2,9 @@ const express = require("express");
 const morgan = require("morgan");
 const cors = require("cors");
 const db = require("./utils/database");
+const initModels = require("./models/initModels");
+
+initModels();
 
 const app = express();
 app.use(cors());

@@ -16,7 +16,7 @@ const Todos = db.define("todos", {
     allowNull: false,
   },
   status: {
-    type: DataTypes.INTEGER(1),
+    type: DataTypes.INTEGER,
     allowNull: false,
     defaultValue: 1,
   },

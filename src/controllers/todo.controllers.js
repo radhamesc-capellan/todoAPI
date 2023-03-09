@@ -22,6 +22,17 @@ const createTodo = async (req, res) => {
   }
 };
 
+const updteStatusTodo = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const newData = req.body;
+    await TodosServices.updateStatus(newData, id);
+    res.status(204).send();
+  } catch (error) {
+    res.status(400).json(error);
+  }
+};
+
 const deleteTodo = async (req, res) => {
   try {
     const { id } = req.params;
@@ -35,5 +46,6 @@ const deleteTodo = async (req, res) => {
 module.exports = {
   getUserTodosWithCategories,
   createTodo,
+  updteStatusTodo,
   deleteTodo,
 };

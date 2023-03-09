@@ -35,6 +35,17 @@ class TodosServices {
     }
   }
 
+  static async updateStatus(newData, id) {
+    try {
+      const todoStatusUpdate = await Todos.updateStatus(newData, {
+        where: { id },
+      });
+      return todoStatusUpdate;
+    } catch (error) {
+      throw error;
+    }
+  }
+
   static async delete(id) {
     try {
       const result = Todos.destroy({

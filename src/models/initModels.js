@@ -1,5 +1,5 @@
 const Users = require("./user.models");
-const Categories = require("./categoty.models");
+const Categories = require("./category.models");
 const Todos = require("./todo.models");
 
 const initModels = () => {
